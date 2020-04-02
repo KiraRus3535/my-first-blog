@@ -1,0 +1,378 @@
+{% extends 'base.html' %} {% block head %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">{% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="{{ desc }}" />
+<meta name="keywords" content="{{ key }}" />
+<link rel="shortcut icon" href="static/img/musicblack.ico" type="image/x-icon">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>WorldWideMusic</title>
+<!-- иконка в браузере -->
+{% endblock %}
+
+<body> {% block body %}
+
+{% block menu %}
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <nav role="navigation" class="navbar navbar-inverse">
+
+                <div class="container">
+
+                    <div class="navbar-header header">
+
+                        <div class="container">
+
+                            <div class="row">
+
+                                <div class="col-lg-12">
+
+                                    <a href="http://127.0.0.1:8000/" style="float:left; margin-top:20px; margin-right:50px;"><img src="static/img/Logowwm4.png" alt="logo" class="logo"></a>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+
+                              <span class="sr-only">Toggle navigation</span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+
+                          </button>
+                    </div>
+
+                    <div id="navbarCollapse" class="collapse navbar-collapse navbar-right">
+
+                        <ul class="nav nav-pills">
+                            <li class="active"><a href="http://127.0.0.1:8000/">Главная</a></li>
+                            <li> <a href="#">Клипы</a></li>
+                            <li> <a href="https://vk.com/wrldwidemusic">Наша группа в вк</a></li>
+                            <li> <a href="#">Рейтинг альбомов</a></li>
+                            <li> <a href="#">Контакты</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+{% endblock %}
+
+    <div class="wrapper">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-9 col-lg-pull-1">
+
+                    <h2>Свежие альбомы</h2>
+                    <hr>
+                    <div class="row">
+
+                        {% if not posts %}
+                        <b>Статьи не найдены</b> {% else %} {% for obj in posts %}
+                        <!-- <b>{{ obj.title }}</b> -->
+                        <div class="films_block col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <img src="{{ obj.image.url }}" alt="null">
+                            <a href="{{ obj.get_absolute_url }}">
+                                <p>{{ obj.content|truncatechars:70 }}</p>
+                            </a>
+
+                            <span>{{ obj.timestamp }}</span> <br><br></div> {% endfor %} {% endif %}
+
+
+                    </div>
+
+
+                    <div class="margin-8"></div>
+
+                    <h2>Свежие синглы</h2>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="films_block col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <a href="#">
+                                <img src="static/img/W.jpg" alt="Tory Lanez — «W»">
+
+                                <div class="film_label">Tory Lanez — «W»</div>
+                            </a>
+                        </div>
+
+                        <div class="films_block col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <a href="https://vk.com/wrldwidemusic?w=wall-186736869_7862">
+                                <img src="static/img/Walkemdown.jpg" alt="NLE Choppa — «Walk Em Down» (feat. Roddy Ricch)">
+
+                                <div class="film_label">NLE Choppa — «Walk Em Down» (feat. Roddy Ricch)</div>
+                            </a>
+                        </div>
+
+                        <div class="films_block col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <a href="#">
+                                <img src="static/img/Chiraqdemons.jpg" alt="Lil Durk — «Chiraq Demons» (feat. G Herbo)">
+
+                                <div class="film_label">Lil Durk — «Chiraq Demons» (feat. G Herbo)</div>
+                            </a>
+                        </div>
+
+                        <div class="films_block col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <a href="#">
+                                <img src="static/img/ОТКРОЙГЛАЗА.jpg" alt="Джизус — «ОТКРОЙ ГЛАЗА (ИЛИ ЗАКРОЙ СВОЙ РОТ)»">
+
+                                <div class="film_label">Джизус — «ОТКРОЙ ГЛАЗА (ИЛИ ЗАКРОЙ СВОЙ РОТ)»</div>
+                            </a>
+                        </div>
+
+                        <div class="films_block col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <a href="#">
+                                <img src="static/img/Contact.jpg" alt="Wiz Khalifa — «Contact» (feat. Tyga)">
+
+                                <div class="film_label">Wiz Khalifa — «Contact» (feat. Tyga)</div>
+                            </a>
+                        </div>
+
+
+                        <div class="films_block col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <a href="#">
+                                <img src="static/img/Днями-ночами.jpg" alt="pyrokinesis & МУККА — «Днями-ночами»">
+
+                                <div class="film_label">pyrokinesis & МУККА — «Днями-ночами»</div>
+                            </a>
+                        </div>
+
+                        <div class="films_block col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <a href="#">
+                                <img src="static/img/Farchance.jpg" alt="Thundercat — «Far Chance» (feat. Ty Dolla $ign & Lil B)">
+
+                                <div class="film_label">Thundercat — «Far Chance» (feat. Ty Dolla $ign & Lil B)</div>
+                            </a>
+                        </div>
+
+                        <div class="films_block col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <a href="#">
+                                <img src="static/img/Bonjour.jpg" alt="Lil Tracy & Marvy Ayy — «Bonjour!»">
+
+                                <div class="film_label">Lil Tracy & Marvy Ayy — «Bonjour!»</div>
+                            </a>
+                        </div>
+
+                        <div class="films_block col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <a href="#">
+                                <img src="static/img/Nofront.jpg" alt="Comethazine — «No Front»">
+
+                                <div class="film_label">Comethazine — «No Front»</div>
+                            </a>
+                        </div>
+
+                        <div class="films_block col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <a href="#">
+                                <img src="static/img/2 Seater.jpg" alt="YBN Nahmir — «2 Seater» (feat. G-Eazy & Offset)»">
+
+                                <div class="film_label">YBN Nahmir — «2 Seater» (feat. G-Eazy & Offset)</div>
+                            </a>
+                        </div>
+
+                        <div class="films_block col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <a href="#">
+                                <img src="static/img/нетвоидела.jpg" alt="вышел покурить — «не твои дела»">
+
+                                <div class="film_label">вышел покурить — «не твои дела»</div>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="margin-8 clear"></div>
+
+                </div>
+
+                {% block sidebar %}
+                <div class="col-lg-3 col-lg-push-1">
+
+                    <div class="panel panel-info hidden-xs">
+
+                        <div class="panel-heading">
+                            <div class="sidebar-header">Поиск</div>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <form role="search">
+
+                                <div class="form-group">
+
+                                    <div class="input-group">
+
+                                        <input type="search" class="form-control input-lg" placeholder="Ваш запрос">
+
+                                        <div class="input-group-btn">
+
+                                            <button class="btn btn-default btn-lg" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="sidebar-header">Вход</div>
+                        </div>
+                        <div class="panel-body">
+                            <form role="form">
+                                <div class="form-group">
+                                    <input type="text" class="form-control input-lg" placeholder="Логин">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control input-lg" placeholder="Пароль">
+                                </div>
+                                <button type="submit" class="btn btn-warning pull-right">вход</button>
+                            </form>
+
+                        </div>
+
+                    </div> -->
+
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="sidebar-header">Новости</div>
+                        </div>
+                        <div class="panel-body">
+
+                            <p>22.03.2020</p>
+                            <p>Мы запустили новый сервис</p>
+
+
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="sidebar-header">Рейтинг релизов</div>
+                        </div>
+                        <div class="panel-body">
+
+                            <ul class="list-group">
+
+                                <li class="list-group-item list-group-warning">
+
+                                    <span class="badge">8.0</span>
+
+                                    <a href="#">Макс Корж — «Малолетка»</a>
+                                </li>
+
+                                <!-- <ul class="list-group">
+
+                                  <li class="list-group-item list-group-warning">
+
+                                      <span class="badge">8.7</span>
+
+                                      <a href="#">Безумный макс</a>
+                                  </li>
+
+
+                                  <li class="list-group-item list-group-warning">
+
+                                      <span class="badge">8.3</span>
+
+                                      <a href="#">Матрица</a>
+                                  </li>
+
+                                  <ul class="list-group">
+
+                                      <li class="list-group-item list-group-warning">
+
+                                          <span class="badge">8.1</span>
+
+                                          <a href="#">Облачный атлас</a>
+                                      </li>
+                                      <li class="list-group-item list-group-warning">
+
+                                          <span class="badge">8.9</span>
+
+                                          <a href="#">Интерстеллар</a>
+                                      </li>
+
+                                      <ul class="list-group">
+
+                                          <li class="list-group-item list-group-warning">
+
+                                              <span class="badge">8.7</span>
+
+                                              <a href="#">Безумный макс</a>
+                                          </li>
+
+
+                                          <li class="list-group-item list-group-warning">
+
+                                              <span class="badge">8.3</span>
+
+                                              <a href="#">Матрица</a>
+                                          </li>
+
+                                          <ul class="list-group">
+
+                                              <li class="list-group-item list-group-warning">
+
+                                                  <span class="badge">8.1</span>
+
+                                                  <a href="#">Облачный атлас</a>
+                                              </li>
+
+                                          </ul> -->
+
+
+                        </div>
+
+                    </div>
+
+
+                </div> {% endblock %}
+                      
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="clear"></div>
+
+    </div>
+{% block footer %}
+    <footer>
+{% block copyright %}
+    <div class="container">
+
+        <p class="text-center"> <a href="https://vk.com/wrldwidemusic">Наша группа VK   </a> <br>
+        <a href="https://www.instagram.com/wrldwidemusic/?igshid=11p4a1oowd55n">   Наш Instagram</a></p>
+
+
+    </div>        
+{% endblock %}
+    </footer>
+{% endblock %}
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="static/css/bootstrap.min.js"></script>
+{% endblock %}
+</body>
+
+</html>
