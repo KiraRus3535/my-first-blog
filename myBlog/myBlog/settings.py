@@ -10,10 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
-import os
+import os, sys
 import os.path
 
-
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -35,14 +35,16 @@ ALLOWED_HOSTS = ['127.0.0.1', '.worldwidemusic.com']
 
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS = [    
+    'blog',
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog',
+
 ]
 
 MIDDLEWARE = [
@@ -67,7 +69,8 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+                'django.contrib.messages.context_processors.messages',                
+                'django.template.context_processors.request',
             ],
         },
     },
@@ -119,7 +122,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
@@ -127,7 +129,6 @@ USE_TZ = True
 
 #Укажем папку для сохранения загружаемых изображений (поле image) и паку для хранения статических файлов (например, css файлы, js срипты)
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
  
 # путь до папки media, в общем случае она пуста в начале
  
@@ -140,12 +141,6 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static') # пустая папка, с
  
 STATIC_URL = '/static/' # URL для шаблонов
  
- 
-STATICFILES_DIRS = (
- 
-os.path.join(PROJECT_ROOT, 'css'),
- 
-)
   
 # "Поисковики" статики. Первый ищет статику в STATICFILES_DIRS,
  

@@ -2,8 +2,8 @@ from django.contrib import admin
  
 # Register your models here.
  
-from .models import Post
- 
+from .models import Post, Comment
+
 class PostModelAdmin(admin.ModelAdmin):
     list_display = ["id" ,"title", "updated", "timestamp"]
     list_display_links = ["id", "updated"]
@@ -12,5 +12,6 @@ class PostModelAdmin(admin.ModelAdmin):
     search_fields = ["title", "content"]
     class Meta:
         model = Post
- 
+
 admin.site.register(Post, PostModelAdmin)
+admin.site.register(Comment) 

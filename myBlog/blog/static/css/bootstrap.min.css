@@ -4150,8 +4150,8 @@ fieldset[disabled] .btn-link:hover {
 
 .btn-group-lg>.btn,
 .btn-lg {
-    padding: 10px 16px;
-    font-size: 18px;
+    padding: 5px 5px;
+    font-size: 14px;
     line-height: 1.3333333;
     border-radius: 6px
 }

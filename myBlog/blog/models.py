@@ -25,6 +25,17 @@ class Post(models.Model):
  
     class Meta:
         ordering = ["-id", "-timestamp"]
+        verbose_name = 'Пост'
+        verbose_name_plural = 'Посты'
 
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete = models.CASCADE)
+    author = models.CharField('имя автора', max_length = 50) 
+    comment_text = models.CharField('текст комментария', max_length = 200)
 
-        
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
